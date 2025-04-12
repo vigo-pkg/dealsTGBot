@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    image: ${DOCKER_USERNAME}/deals-tg-bot:${BOT_VERSION:-1.0.0}
+    container_name: deals-tg-bot
+    restart: always
+    environment:
+      - BOT_USERNAME=${BOT_USERNAME}
+      - BOT_TOKEN=${BOT_TOKEN}
+    volumes:
+      - ./logs:/app/logs 
